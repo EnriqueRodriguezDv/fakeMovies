@@ -1,0 +1,22 @@
+{
+  "name": "movies-fake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "dev:inspect": "npm --node-options=--inspect=0.0.0.0:9229 run dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "Enrique Rodríguez <juanenriquerodriguezgarcia87@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.6.4",
+    "next": "^10.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
