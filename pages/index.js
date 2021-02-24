@@ -21,14 +21,12 @@ export const getStaticProps = async () => {
 const Home = ({ moviesList }) => {
   return (
     <>
-      <Header />
       <section>
         <h2>Movies</h2>
         {moviesList == null
           ? null
           : moviesList.map((item) => <Card moviesList={item} key={item._id} />)}
       </section>
-      <Footer />
     </>
   );
 };
