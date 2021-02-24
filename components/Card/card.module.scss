@@ -1,0 +1,51 @@
+@import "../../styles/config.scss";
+
+%icon {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  margin: 5px;
+}
+
+.sectionCard {
+  margin: 10px 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  .figure {
+    margin: 0;
+    position: relative;
+    width: 229px;
+    height: 163px;
+
+    .img {
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      position: absolute;
+      z-index: 0;
+    }
+
+    .iconLike {
+      @extend %icon;
+      left: 0;
+    }
+
+    .iconPlus {
+      @extend %icon;
+      right: 0;
+    }
+  }
+
+  .titleBox {
+    background-color: $cardTitleColorBox;
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+.sectionCard:hover {
+  position: relative;
+  top: -3px;
+  right: 3px;
+  box-shadow: 3px 3px rgba($color: gray, $alpha: 0.2);
+}

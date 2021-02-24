@@ -1,8 +1,8 @@
 import React from "react";
 
-import Header from "../components/Header";
-import Card from "../components/Card";
-import Footer from "../components/Footer";
+import Card from "../components/Card/Card";
+
+import styles from "./index.module.scss";
 
 import config from "../config";
 const configUrl = config[1];
@@ -22,10 +22,14 @@ const Home = ({ moviesList }) => {
   return (
     <>
       <section>
-        <h2>Movies</h2>
-        {moviesList == null
-          ? null
-          : moviesList.map((item) => <Card moviesList={item} key={item._id} />)}
+        <h2 className={styles.titleMovies}>Movies</h2>
+        <container className={styles.containerCard}>
+          {moviesList == null
+            ? null
+            : moviesList.map((item) => (
+                <Card moviesList={item} key={item._id} />
+              ))}
+        </container>
       </section>
     </>
   );

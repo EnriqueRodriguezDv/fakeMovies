@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+
+    .linkSeparator{
+        margin-left: 20px;
+        margin-right: 5px;
+    }
+}

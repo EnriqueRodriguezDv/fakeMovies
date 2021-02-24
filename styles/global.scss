@@ -1,0 +1,16 @@
+@import "./config.scss";
+
+
+body{
+    background: linear-gradient($upColor ,$downColor);
+}
+
+a{
+    color: $textColor;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover{
+    color: $aHoverColor;
+}

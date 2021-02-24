@@ -1,5 +1,7 @@
 import Layout from "../containers/Layout/Layout"
 
+import "../styles/global.scss"
+
 function MyApp({ Component, pageProps }) {
     return (
         <Layout>
