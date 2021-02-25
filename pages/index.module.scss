@@ -1,9 +1,16 @@
-.titleMovies{
-    text-align: center;
+.titleMovies {
+  text-align: center;
 }
 
-.containerCard{
+.sectionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .containerCard {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    width: 80vw;
+  }
 }

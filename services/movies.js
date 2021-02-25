@@ -1,4 +1,7 @@
 const db = require("../lib/mongo");
+const Joi = require("@hapi/joi");
+
+const schema = require("../utils/schema/movies");
 
 const TABLE = "movies";
 
@@ -13,13 +16,24 @@ async function getOneMovie(id) {
 }
 
 async function createMovie(newMovie) {
-  const movie = await db.create(TABLE, newMovie);
-  return movie;
+  const { error } = Joi.object(schema.createMovieSchema).validate(newMovie);
+  console.log(error);
+  if (!error) {
+    const movie = await db.create(TABLE, newMovie);
+    return movie;
+  } else {
+    return error;
+  }
 }
 
 async function updateMovie(movieUpdated, id) {
-  const movie = await db.update(TABLE, movieUpdated, id);
-  return movie;
+  const { error } = Joi.object(schema.updateMovieSchema).validate(movieUpdated);
+  if (!error) {
+    const movie = await db.update(TABLE, movieUpdated, id);
+    return movie;
+  } else {
+    return error;
+  }
 }
 
 async function deleteOneMovie(id) {

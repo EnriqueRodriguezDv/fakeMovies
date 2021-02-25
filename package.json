@@ -13,6 +13,7 @@
   "author": "Enrique Rodríguez <juanenriquerodriguezgarcia87@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "dotenv": "^8.2.0",
     "mongodb": "^3.6.4",
     "next": "^10.0.7",

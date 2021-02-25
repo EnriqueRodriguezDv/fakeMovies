@@ -1,6 +1,7 @@
 import React from "react";
 
 import Card from "../components/Card/Card";
+import PaginationList from "../components/PaginationList/PaginationList";
 
 import styles from "./index.module.scss";
 
@@ -21,15 +22,16 @@ export const getStaticProps = async () => {
 const Home = ({ moviesList }) => {
   return (
     <>
-      <section>
+      <section className={styles.sectionCard}>
         <h2 className={styles.titleMovies}>Movies</h2>
         <container className={styles.containerCard}>
           {moviesList == null
             ? null
-            : moviesList.map((item) => (
-                <Card moviesList={item} key={item._id} />
+            : moviesList.map((item, index) => (
+                <Card moviesList={item} key={index} />
               ))}
         </container>
+        <PaginationList movieList={moviesList} />
       </section>
     </>
   );

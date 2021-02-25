@@ -1,5 +1,8 @@
-$upColor: #FFBA3F;
-$downColor: #D00030;
+$upColor: #ffba3f;
+$downColor: #d00030;
 $textColor: black;
 $aHoverColor: #9d0208;
-$cardTitleColorBox: #FFBA3F;
+$cardTitleColorBox: linear-gradient(
+  rgba(255, 255, 255, 0.2),
+  rgba(0, 0, 0, 0.5)
+);
