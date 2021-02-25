@@ -1,14 +1,13 @@
-.header{
-    display: flex;
-    justify-content: space-between;
+.header {
+  display: flex;
+  justify-content: space-between;
 }
 
-.nav{
-    display: flex;
-    align-items: center;
+.nav {
+  display: flex;
+  align-items: center;
 
-    .linkSeparator{
-        margin-left: 20px;
-        margin-right: 5px;
-    }
+  .link {
+    margin-right: 5px;
+  }
 }

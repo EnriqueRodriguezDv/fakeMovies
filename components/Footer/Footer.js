@@ -1,46 +1,25 @@
 import React from "react";
 
+import styles from "./footer.module.scss";
+
 const Footer = () => {
   return (
     <>
-      <footer id="footer" className="footer bg-dark ">
-        <nav className="navbar navbar-expand justify-content-center navbar-dark "></nav>
-        <div className="row w-100 m-auto">
-          <div className="col-12 col-md-6 d-flex justify-content-center p-0 mt-4 mb-5">
-            {/* <a href="https://github.com/EnriqueRodriguezDv" target="_blank">
-            <img className="mr-4" src={github}></img>
+      <footer className={styles.footer}>
+        <section>
+          <h3>About Me</h3>
+          <a href="https://enriquerodriguezdv.github.io/porfolioReact/dist/index.html">
+            Web
           </a>
-          <a
-            href="https://www.facebook.com/Enrique-Rodriguez-Desarrollador-101686708213107"
-            target="_blank"
-          >
-            <img className="mr-4" src={facebook}></img>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/desarrolladorenriquerodriguez/"
-            target="_blank"
-          >
-            <img src={linkedIn}></img>
-          </a> */}
-          </div>
-          <div className="col-12 col-md-6 d-flex align-items-center justify-content-center p-0">
-            <div
-              id="email"
-              className="d-flex align-items-center justify-content-center"
-              onClick={() => {
-                window.open("mailto:juanenriquerodriguezgarcia87@gmail.com");
-              }}
-            >
-              <h2 className="mr-4">Email</h2>
-              {/* <img src={gmail}></img> */}
-            </div>
-          </div>
-        </div>
-        <div className="row w-100 m-auto">
-          <div className="col-12 text-center mt-4 mb-1">
-            <small>Copyright 2020 by Kike Rodríguez</small>
-          </div>
-        </div>
+        </section>
+        <section>
+          <h3>Contact</h3>
+          <p>juanenriquerodriguezgarcia87@gmail.com</p>
+        </section>
+        <section>
+          <h3>Make for</h3>
+          <p>To practice next.js</p>
+        </section>
       </footer>
     </>
   );
