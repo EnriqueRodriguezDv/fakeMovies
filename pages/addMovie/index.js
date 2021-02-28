@@ -2,27 +2,37 @@ import React from "react";
 
 import PieceForm from "../../components/PieceForm/PieceForm";
 
+import styles from "./addMovie.module.scss";
+
 const addMovie = () => {
   return (
     <>
       <section>
-        <form>
-          <div>
+        <form method="POST" className={styles.form}>
+          <div >
+            <PieceForm type="text" title="Title" />
+            <h6>*Requerid</h6>
+            <PieceForm type="url" title="Cover" />
+            <h6>*Requerid, Only url</h6>
+            <PieceForm type="number" title="Year" />
+            <PieceForm type="number" title="Duration" />
             <div>
-              <PieceForm type="text" title="title" />
-              <PieceForm type="url" title="cover" />
+              <p>Content Rating</p>
+              <select>
+                <option>Not rated</option>
+                <option>G</option>
+                <option>PG</option>
+                <option>PG-13</option>
+                <option>R</option>
+                <option>NC-17</option>
+              </select>
             </div>
-            <div>
-              <PieceForm type="number" title="year" />
-              <PieceForm type="number" title="duration" />
-            </div>
-          <div>
-              <p>description</p>
-              <textarea />
           </div>
-            
+          <div >
+            <p>Description</p>
+            <textarea />
           </div>
-          <button>Send</button>
+          <button type="submit">Send</button>
         </form>
       </section>
     </>
