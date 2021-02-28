@@ -11,7 +11,7 @@ const Header = () => {
           <h2>Movies Fake</h2>
         </div>
         <nav className={styles.nav}>
-          <Link href={"/create-movie"}>
+          <Link href={"/addMovie"}>
             <a className={styles.link}>Add movie</a>
           </Link>
         </nav>
