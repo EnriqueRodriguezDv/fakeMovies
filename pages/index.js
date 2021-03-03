@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import fetch from "isomorphic-unfetch";
 
 import Card from "../components/Card/Card";
@@ -6,16 +6,27 @@ import PaginationList from "../components/PaginationList/PaginationList";
 
 import styles from "./index.module.scss";
 
-const Home = () => {
-  const [moviesList, setMoviesList] = useState([]);
+export const getServerSideProps = async () => {
+  const response = await fetch("https://fake-movies.vercel.app/api/movies");
+  const data = await response.json();
 
-  useEffect(() => {
-    fetch("/api/movies")
-      .then((response) => response.json())
-      .then((data) => {
-        setMoviesList(data);
-      });
-  });
+  return {
+    props: {
+      moviesList: data,
+    },
+  };
+};
+
+const Home = ({ moviesList }) => {
+  // const [moviesList, setMoviesList] = useState([]);
+
+  // useEffect(() => {
+  //   fetch("/api/movies")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setMoviesList(data);
+  //     });
+  // });
 
   return (
     <>
