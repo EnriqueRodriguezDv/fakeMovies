@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Card from "../components/Card/Card";
 import PaginationList from "../components/PaginationList/PaginationList";
@@ -10,18 +10,29 @@ import mock from "../utils/mocks/movies";
 import config from "../config";
 const configUrl = config[1];
 
-export const getStaticProps = async () => {
-  const response = await fetch(`https://fake-movies.vercel.app//api/movies`);
-  const moviesList = await response.json();
+// export const getStaticProps = async () => {
+//   const response = await fetch(`https://fake-movies.vercel.app//api/movies`);
+//   const moviesList = await response.json();
 
-  return {
-    props: {
-      moviesList,
-    },
-  };
-};
+//   return {
+//     props: {
+//       moviesList,
+//     },
+//   };
+// };
 
-const Home = ({ moviesList }) => {
+const Home = () => {
+  const [moviesList, setMoviesList] = useState(null);
+
+  useEffect(() => {
+    window
+      .fetch("/api/movies")
+      .then((response) => response.json())
+      .then((data) => {
+        setMoviesList(data);
+      });
+  });
+
   return (
     <>
       <section className={styles.sectionCard}>
