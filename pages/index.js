@@ -1,32 +1,16 @@
 import React, { useEffect, useState } from "react";
+import fetch from "isomorphic-unfetch";
 
 import Card from "../components/Card/Card";
 import PaginationList from "../components/PaginationList/PaginationList";
 
 import styles from "./index.module.scss";
 
-import mock from "../utils/mocks/movies";
-
-import config from "../config";
-const configUrl = config[1];
-
-// export const getStaticProps = async () => {
-//   const response = await fetch(`https://fake-movies.vercel.app//api/movies`);
-//   const moviesList = await response.json();
-
-//   return {
-//     props: {
-//       moviesList,
-//     },
-//   };
-// };
-
 const Home = () => {
   const [moviesList, setMoviesList] = useState([]);
 
   useEffect(() => {
-    window
-      .fetch("/api/movies")
+    fetch("/api/movies")
       .then((response) => response.json())
       .then((data) => {
         setMoviesList(data);
