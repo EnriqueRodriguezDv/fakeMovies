@@ -10,21 +10,18 @@ import mock from "../utils/mocks/movies";
 import config from "../config";
 const configUrl = config[1];
 
-// export const getStaticProps = async () => {
-//   // const response = await fetch(`${configUrl.url}/api/movies`);
-//   const moviesList = await response.json();
+export const getStaticProps = async () => {
+  const response = await fetch(`https://fake-movies.vercel.app//api/movies`);
+  const moviesList = await response.json();
 
-//   return {
-//     props: {
-//       moviesList,
-//     },
-//   };
-// };
+  return {
+    props: {
+      moviesList,
+    },
+  };
+};
 
-const Home = () => {
-  // quitar y poner props
-  let moviesList = mock;
-  //
+const Home = ({ moviesList }) => {
   return (
     <>
       <section className={styles.sectionCard}>
