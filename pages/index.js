@@ -22,7 +22,7 @@ const configUrl = config[1];
 // };
 
 const Home = () => {
-  const [moviesList, setMoviesList] = useState(null);
+  const [moviesList, setMoviesList] = useState([]);
 
   useEffect(() => {
     window
