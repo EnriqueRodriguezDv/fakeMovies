@@ -9,14 +9,16 @@ const Card = (props, key) => {
     <>
       <section className={styles.sectionCard} key={key}>
         <Link href={`/oneMovie/${moviesList._id}`}>
-          <div>
-            <figure className={styles.figure}>
-              <img className={styles.img} src={moviesList.cover} />
-            </figure>
-            <div className={styles.titleBox}>
-              <a>{moviesList.title}</a>
+          <a>
+            <div>
+              <figure className={styles.figure}>
+                <img className={styles.img} src={moviesList.cover} />
+              </figure>
+              <div className={styles.titleBox}>
+                <p>{moviesList.title}</p>
+              </div>
             </div>
-          </div>
+          </a>
         </Link>
       </section>
     </>

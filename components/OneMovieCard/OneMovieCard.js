@@ -1,11 +1,13 @@
 import React from "react";
 import OneMovieCardInfo from "./OneMovieCardInfo";
 
+import style from "./OneMovieCard.module.scss";
+
 const OneMovieCard = ({ movie }) => {
   return (
     <>
-      <section>
-        <div>
+      <section className={style.section}>
+        <div className={style.container}>
           <figure>
             <img src={movie.cover} alt={movie.title} />
           </figure>
