@@ -6,7 +6,8 @@ import PaginationList from "../components/PaginationList/PaginationList";
 
 import styles from "./index.module.scss";
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
+  // export const getServerSideProps = async () => {
   const response = await fetch("https://fake-movies.vercel.app/api/movies");
   const data = await response.json();
 
