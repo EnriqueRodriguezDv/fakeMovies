@@ -8,14 +8,16 @@ const Card = (props, key) => {
   return (
     <>
       <section className={styles.sectionCard} key={key}>
-        <figure className={styles.figure}>
-          <img className={styles.img} src={moviesList.cover} />
-        </figure>
-        <div className={styles.titleBox}>
-          <Link href={`/oneMovie/${moviesList._id}`}>
-            <a>{moviesList.title}</a>
-          </Link>
-        </div>
+        <Link href={`/oneMovie/${moviesList._id}`}>
+          <div>
+            <figure className={styles.figure}>
+              <img className={styles.img} src={moviesList.cover} />
+            </figure>
+            <div className={styles.titleBox}>
+              <a>{moviesList.title}</a>
+            </div>
+          </div>
+        </Link>
       </section>
     </>
   );
