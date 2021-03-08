@@ -19,9 +19,9 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async (context) => {
   const response = await fetch(
-    `https://fake-movies.vercel.app/api/movies/${params?.id}`
+    `https://fake-movies.vercel.app/api/movies/${context.params?.id}`
   );
   const movie = await response.json();
 
@@ -29,15 +29,12 @@ export const getStaticProps = async ({ params }) => {
     props: {
       movie,
     },
+    revalidate: 1,
   };
 };
 
 const OneMovie = ({ movie }) => {
-  return (
-    <>
-      <OneMovieCard movie={movie} />
-    </>
-  );
+  return <>{movie == null ? null : <OneMovieCard movie={movie} />}</>;
 };
 
 export default OneMovie;

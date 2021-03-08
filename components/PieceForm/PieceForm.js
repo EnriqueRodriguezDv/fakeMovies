@@ -4,7 +4,7 @@ const PieceForm = ({ title, type }) => {
   return (
     <>
       <p>{title}</p>
-      <input type={type}></input>
+      <input id={title} type={type}></input>
     </>
   );
 };
