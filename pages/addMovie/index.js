@@ -8,23 +8,27 @@ import styles from "./addMovie.module.scss";
 const addMovie = () => {
   const registerUser = async (event) => {
     event.preventDefault();
-
-    const res = await fetch("https://fake-movies.vercel.app/api/movies", {
-      body: JSON.stringify({
-        title: event.target.Title.value,
-        year: event.target.Year.value,
-        cover: event.target.Cover.value,
-        description: event.target.description.value,
-        duration: event.target.Duration.value,
-        contentRating: event.target.contentRating.value,
-      }),
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-    });
-
-    const result = await res.json();
-    console.log(result);
-    return result;
+    try {
+      const res = await fetch("https://fake-movies.vercel.app/api/movies", {
+        body: JSON.stringify({
+          title: event.target.Title.value,
+          year: event.target.Year.value,
+          cover: event.target.Cover.value,
+          description: event.target.description.value,
+          duration: event.target.Duration.value,
+          contentRating: event.target.contentRating.value,
+        }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+  
+      const result = await res.json();
+      console.log(result);
+      return result;
+      
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (

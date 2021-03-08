@@ -15,7 +15,9 @@
   "license": "MIT",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "isomorphic-unfetch": "^3.1.0",
     "mongodb": "^3.6.4",
     "next": "^10.0.7",

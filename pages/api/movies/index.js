@@ -1,6 +1,8 @@
 import servicesMovies from "../../../services/movies";
+import enablePublicAccess from "../../../cors-middleware"
 
 const apiMovies = async (req, res) => {
+  await enablePublicAccess(req, res)
   try {
     switch (req.method) {
       case "GET":
