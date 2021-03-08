@@ -1,7 +1,7 @@
 import React from "react";
 import OneMovieCardInfo from "./OneMovieCardInfo";
 
-import style from "./OneMovieCard.module.scss";
+import style from "./oneMovieCard.module.scss";
 
 const OneMovieCard = ({ movie }) => {
   return (
