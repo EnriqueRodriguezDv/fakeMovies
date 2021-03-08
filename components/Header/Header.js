@@ -5,7 +5,26 @@ import { useRouter } from "next/router";
 import styles from "./header.module.scss";
 
 const Header = () => {
-  const router = useRouter();
+  const router = useRouter()
+  const renderSwitch = (params) => {
+    switch (params) {
+      case "/":
+        return (
+          <Link href={"/addMovie"}>
+            <a className={styles.link}>Add movie</a>
+          </Link>
+        );
+      case `/oneMovie/${id}`:
+        return (
+          <Link href={"/updateMovie"}>
+            <a className={styles.link}>Update movie</a>
+          </Link>
+        );
+      default:
+        return null;
+    }
+  };
+  
   return (
     <>
       <header className={styles.header}>
@@ -17,11 +36,7 @@ const Header = () => {
           </Link>
         </div>
         <nav className={styles.nav}>
-          {router.route === "/" ? (
-            <Link href={"/addMovie"}>
-              <a className={styles.link}>Add movie</a>
-            </Link>
-          ) : null}
+          {renderSwitch(router.route)}
         </nav>
       </header>
     </>
