@@ -1,6 +1,6 @@
 import React from "react";
 
-import style from "./OneMovieCardInfo.module.scss";
+import style from "./oneMovieCardInfo.module.scss";
 
 const OneMovieCardInfo = ({ title, info }) => {
   return (
