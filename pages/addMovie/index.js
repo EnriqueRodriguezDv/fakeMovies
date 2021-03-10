@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import fetch from "isomorphic-unfetch";
+import Router from "next/router"
 
 import PieceForm from "../../components/PieceForm/PieceForm";
 
@@ -7,12 +8,6 @@ import styles from "./addMovie.module.scss";
 
 const addMovie = () => {
   const [form, setValues] = useState({
-    title: "",
-    year: "",
-    cover: "",
-    description: "",
-    duration: "",
-    contentRating: "",
   });
 
   const handleInput = (event) => {
@@ -24,8 +19,8 @@ const addMovie = () => {
 
   const registerUser = async (event) => {
     event.preventDefault();
-    try {
-      const res = await fetch("https://fake-movies.vercel.app/api/movies", {
+   try {
+      const res = await fetch("/api/movies", {
         body: JSON.stringify(form),
         headers: {
           "Content-Type": "application/json",
@@ -33,13 +28,12 @@ const addMovie = () => {
         method: "POST",
       });
 
-      const result = await res.json();
-      console.log(res.body);
-      return result;
+      Router.push("/")
+      
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }; 
 
   return (
     <>
@@ -53,7 +47,7 @@ const addMovie = () => {
             <PieceForm type="number" title="Year" handle={handleInput} />
             <PieceForm type="number" title="Duration" handle={handleInput} />
             <div>
-              <p>Content Rating</p>
+              <label htmlFor="contentRating">Content Rating</label>
               <select
                 id="contentRating"
                 name="contentRating"
@@ -69,7 +63,7 @@ const addMovie = () => {
             </div>
           </div>
           <div>
-            <p>Description</p>
+            <label htmlFor="description">Description</label>
             <textarea
               id="description"
               name="description"

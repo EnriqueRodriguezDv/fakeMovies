@@ -13,15 +13,21 @@ const OneMovieCard = ({ movie }) => {
           </figure>
           <div>
             <OneMovieCardInfo title={"title"} info={movie.title} />
-            <OneMovieCardInfo title={"Year"} info={movie.year} />
-            <OneMovieCardInfo title={"Duration"} info={movie.duration} />
-            <OneMovieCardInfo
-              title={"Content Rating"}
-              info={movie.contentRating}
-            />
+            {movie.year ? (
+              <OneMovieCardInfo title={"Year"} info={movie.year} />
+            ) : null}
+            {movie.duration ? (
+              <OneMovieCardInfo title={"Duration"} info={movie.duration} />
+            ) : null}
+            {movie.contentRating ? (
+              <OneMovieCardInfo
+                title={"Content Rating"}
+                info={movie.contentRating}
+              />
+            ) : null}
           </div>
         </div>
-        <p>{movie.description}</p>
+        {movie.description ? <p>{movie.description}</p> : null}
       </section>
     </>
   );

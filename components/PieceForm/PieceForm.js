@@ -1,9 +1,9 @@
 import React from "react";
 
-const PieceForm = ({ title, type, handle }) => {
+const PieceForm = ({ title, type, handle}) => {
   return (
     <>
-      <p>{title}</p>
+      <label htmlFor={title}></label>
       <input
         id={title}
         type={type}
