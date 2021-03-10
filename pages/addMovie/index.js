@@ -5,7 +5,7 @@ import PieceForm from "../../components/PieceForm/PieceForm";
 
 import styles from "./addMovie.module.scss";
 
-const addMovie = (props) => {
+const addMovie = () => {
   const [form, setValues] = useState({
     title: "",
     year: "",
@@ -23,7 +23,7 @@ const addMovie = (props) => {
   };
 
   const registerUser = async (event) => {
-    console.log("funciona!!");
+    event.preventDefault();
     try {
       const res = await fetch("https://fake-movies.vercel.app/api/movies", {
         body: JSON.stringify(form),
@@ -33,9 +33,8 @@ const addMovie = (props) => {
         method: "POST",
       });
 
-      const result = res.json();
-      console.log(result);
-      event.preventDefault();
+      const result = await res.json();
+      console.log(res.body);
       return result;
     } catch (error) {
       console.log(error);

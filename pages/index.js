@@ -33,13 +33,13 @@ const Home = ({ moviesList }) => {
     <>
       <section className={styles.sectionCard}>
         <h2 className={styles.titleMovies}>Movies</h2>
-        <container className={styles.containerCard}>
+        <div className={styles.containerCard}>
           {moviesList == null
             ? null
             : moviesList.map((item, index) => (
                 <Card moviesList={item} key={index} />
               ))}
-        </container>
+        </div>
         <PaginationList movieList={moviesList} />
       </section>
     </>
