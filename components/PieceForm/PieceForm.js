@@ -1,10 +1,15 @@
 import React from "react";
 
-const PieceForm = ({ title, type }) => {
+const PieceForm = ({ title, type, handle }) => {
   return (
     <>
       <p>{title}</p>
-      <input id={title} type={type}></input>
+      <input
+        id={title}
+        type={type}
+        onChange={handle}
+        name={title.toLowerCase()}
+      ></input>
     </>
   );
 };

@@ -1,33 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import fetch from "isomorphic-unfetch";
 
 import PieceForm from "../../components/PieceForm/PieceForm";
 
 import styles from "./addMovie.module.scss";
 
-const addMovie = () => {
+const addMovie = (props) => {
+  const [form, setValues] = useState({
+    title: "",
+    year: "",
+    cover: "",
+    description: "",
+    duration: "",
+    contentRating: "",
+  });
+
+  const handleInput = (event) => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const registerUser = async (event) => {
-    event.preventDefault();
+    console.log("funciona!!");
     try {
       const res = await fetch("https://fake-movies.vercel.app/api/movies", {
-        body: JSON.stringify({
-          title: event.target.Title.value,
-          year: event.target.Year.value,
-          cover: event.target.Cover.value,
-          description: event.target.description.value,
-          duration: event.target.Duration.value,
-          contentRating: event.target.contentRating.value,
-        }),
-        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+        headers: {
+          "Content-Type": "application/json",
+        },
         method: "POST",
       });
-  
-      const result = await res.json();
+
+      const result = res.json();
       console.log(result);
+      event.preventDefault();
       return result;
-      
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -36,15 +47,19 @@ const addMovie = () => {
       <section>
         <form onSubmit={registerUser} className={styles.form}>
           <div>
-            <PieceForm type="text" title="Title" />
+            <PieceForm type="text" title="Title" handle={handleInput} />
             <h6>*Requerid</h6>
-            <PieceForm type="url" title="Cover" />
+            <PieceForm type="url" title="Cover" handle={handleInput} />
             <h6>*Requerid, Only url</h6>
-            <PieceForm type="number" title="Year" />
-            <PieceForm type="number" title="Duration" />
+            <PieceForm type="number" title="Year" handle={handleInput} />
+            <PieceForm type="number" title="Duration" handle={handleInput} />
             <div>
               <p>Content Rating</p>
-              <select id="contentRating">
+              <select
+                id="contentRating"
+                name="contentRating"
+                onChange={handleInput}
+              >
                 <option value="Not rated">Not rated</option>
                 <option value="G">G</option>
                 <option value="PG">PG</option>
@@ -56,7 +71,11 @@ const addMovie = () => {
           </div>
           <div>
             <p>Description</p>
-            <textarea id="description" />
+            <textarea
+              id="description"
+              name="description"
+              onChange={handleInput}
+            />
           </div>
           <button type="submit">Send</button>
         </form>
