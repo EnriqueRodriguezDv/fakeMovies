@@ -1,11 +1,16 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 
 import styles from "./header.module.scss";
 
 const Header = () => {
   const router = useRouter();
+
+  const handleOnClick = () => {
+    Router.push(`/updateMovie/${router.query.id}`)
+  }
+
   const renderSwitch = (params) => {
     switch (params) {
       case "/":
@@ -16,9 +21,7 @@ const Header = () => {
         );
       case `/oneMovie/[id]`:
         return (
-          <Link href={"/updateMovie"}>
-            <a className={styles.link}>Update movie</a>
-          </Link>
+            <a className={styles.link}  onClick={handleOnClick}>Update movie</a>
         );
       default:
         return null;

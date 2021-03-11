@@ -38,9 +38,9 @@ const Home = ({ moviesList }) => {
             ? null
             : moviesList.map((item, index) => (
                 <Card moviesList={item} key={index} />
-              ))}
+              )).reverse()}
         </div>
-        <PaginationList movieList={moviesList} />
+        {/* <PaginationList movieList={moviesList} /> */}
       </section>
     </>
   );
