@@ -3,23 +3,24 @@ import fetch from "isomorphic-unfetch";
 
 import OneMovieCard from "../../components/OneMovieCard/OneMovieCard";
 
-export const getStaticPaths = async () => {
-  const response = await fetch("https://fake-movies.vercel.app/api/movies");
-  const data = await response.json();
-  const paths = data.map((item) => ({
-    params: {
-      id: item._id,
-      ...item,
-    },
-  }));
+// export const getStaticPaths = async () => {
+//   const response = await fetch("https://fake-movies.vercel.app/api/movies");
+//   const data = await response.json();
+//   const paths = data.map((item) => ({
+//     params: {
+//       id: item._id,
+//       ...item,
+//     },
+//   }));
 
-  return {
-    paths,
-    fallback: true,
-  };
-};
+//   return {
+//     paths,
+//     fallback: true,
+//   };
+// };
 
-export const getStaticProps = async (context) => {
+// export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const response = await fetch(
     `https://fake-movies.vercel.app/api/movies/${context.params?.id}`
   );
@@ -29,7 +30,6 @@ export const getStaticProps = async (context) => {
     props: {
       movie,
     },
-    revalidate: 1,
   };
 };
 

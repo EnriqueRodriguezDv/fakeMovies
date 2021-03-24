@@ -6,8 +6,8 @@ import PaginationList from "../components/PaginationList/PaginationList";
 
 import styles from "./index.module.scss";
 
-export const getStaticProps = async () => {
-  // export const getServerSideProps = async () => {
+// export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const response = await fetch("https://fake-movies.vercel.app/api/movies");
   const data = await response.json();
 
@@ -36,9 +36,9 @@ const Home = ({ moviesList }) => {
         <div className={styles.containerCard}>
           {moviesList == null
             ? null
-            : moviesList.map((item, index) => (
-                <Card moviesList={item} key={index} />
-              )).reverse()}
+            : moviesList
+                .map((item, index) => <Card moviesList={item} key={index} />)
+                .reverse()}
         </div>
         {/* <PaginationList movieList={moviesList} /> */}
       </section>
